@@ -1,0 +1,62 @@
+{
+	"pages": [{
+		"path": "pages/index/login",
+		"style": {
+			"navigationBarTitleText": "请先登录",
+			"animationType": "fade-in",
+			"animationDuration": 300
+		}
+	},
+	{
+		"path" : "pages/mainpage/mainpage",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path" : "pages/index/register",
+		"style" : 
+		{
+			"navigationBarTitleText" : "请先注册",
+			"enablePullDownRefresh" : false,
+			"animationType": "fade-in",
+			"animationDuration": 300
+		}
+	},
+	{
+		"path" : "pages/homepage/homepage",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path" : "pages/Inquisition/Inquisition",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
+		"path" : "pages/manage/manage",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "慧医",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	}
+}
