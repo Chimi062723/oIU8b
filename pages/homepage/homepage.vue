@@ -37,13 +37,16 @@
 				后续打算在下面添加其他介绍等部分，上面负责主要功能
 			</uni-section>
 		</view>
+		<view class="bottom">
+			<image src="../../images/homepage/ground.webp" style="width: 100%; height: 40vh; vertical-align: bottom;"> 这是底部栏</image>
+		</view>
 	</view>
 </template>
  
 <script>
 	export default {
 		data() {
-			return { 
+			return { 	
 				
 			};
 		},
@@ -59,6 +62,11 @@
 </script>
 
 <style>
+	.bottom{
+		text-align: center;
+		bottom: 0;
+		padding-bottom: 0;
+	}
 	.disciption{
 		display: flex;
 		flex-direction: column;
@@ -78,10 +86,12 @@
 		height: 90vh;
 	}
 	.main{
+		background-image: linear-gradient(#3269b9,#4682d8);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
         min-height: 90vh;
+		margin-bottom: 0;
 	}
 	.body{
 		display: flex;
