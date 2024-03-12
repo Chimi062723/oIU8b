@@ -16,6 +16,14 @@
 		}
 	},
 	{
+		"path" : "pages/chat/chat",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
+	},
+	{
 		"path" : "pages/index/register",
 		"style" : 
 		{

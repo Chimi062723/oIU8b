@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="main">
 		<view id="base" class="">
 		
 		      <!-- Unnamed (Rectangle) -->
@@ -1379,5 +1379,7 @@
 </script>
 
 <style>
-
+.main{
+	background-image: linear-gradient(#FFFFFF,#e0e0e0);
+}
 </style>
