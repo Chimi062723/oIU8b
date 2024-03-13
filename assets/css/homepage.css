@@ -1,0 +1,236 @@
+.sectionself{
+	width: 100vw;
+	height: 100vh;
+}
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+}
+.image{
+	max-width: 75px;
+	max-height: 75px;
+	top: -37.5px;
+	position: absolute;
+	left: 50%;
+}
+.solar-syst {
+	background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
+	background-attachment: fixed;
+	margin: 0 auto;
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+}
+.solar-syst::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 2px;
+  top: -2px;
+  background: white;
+  border-radius: 100px;
+}
+.solar-syst view {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 999;
+  border-radius: 1000px;
+}
+.solar-syst view:not(.sun) {
+  border: 1px solid rgba(102, 166, 229, 0.15);
+}
+.solar-syst view:not(.sun)::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border-radius: 1000px;
+}
+.solar-syst div:not(.asteroid-belt)::before{
+  box-shadow: inset 0 6px 0 -2px rgba(0, 0, 0, 0.25);
+}
+.sun {
+	border-radius: 0;
+	background-image: url(../../images/homepage/sun.png);
+	background-size: 100%;
+	background-clip: padding-box;
+	box-shadow: 0 0 10px 2px rgba(255, 107, 0, 0.4), 0 0 22px 11px rgba(255, 203, 0, 0.13);
+	border: 0;
+	height: 80px;
+	width: 80px;
+	margin-top: -40px;
+	margin-left: -40px;
+}
+.star1 {
+  height: 200px;
+  width: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  animation: orbit 5s linear infinite;
+}
+.star2 {
+  height: 300px;
+  width: 300px;
+  margin-top: -150px;
+  margin-left: -150px;
+  animation: orbit 6s linear infinite;
+}
+.star3 {
+  height: 400px;
+  width: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  animation: orbit 8s linear infinite;
+}
+.star4 {
+  height: 500px;
+  width: 500px;
+  margin-top: -250px;
+  margin-left: -250px;
+  animation: orbit 10s linear infinite;
+}
+.asteroid-belt {
+  height: 300px;
+  width: 300px;
+  margin-top: -150px;
+  margin-left: -150px;
+  border-color: transparent !important;
+  overflow: hidden;
+  opacity: 0.7;
+  animation: orbit 180s linear infinite;
+}
+.asteroid-belt::before {
+  top: 50%;
+  height: 210px;
+  width: 210px;
+  margin-left: -105px;
+  margin-top: -105px;
+  background: transparent;
+  border-radius: 140px;
+}
+@keyframes once-show {
+    from {
+        top: 0;
+    }
+}
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.leftnav{
+	top: 15vh;
+	background-color: transparent;
+	box-shadow: 0px 0px 30px 15px inset cadetblue;
+	text-shadow: 0 0 20px #000000;
+	color: #f0f0f0;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	left: auto;
+	margin-left:20px;
+	position: fixed;
+	z-index: 5;
+	height: 70vh;
+}
+.text{
+	overflow-wrap: break-word;
+	font-size: 2rem;
+}
+.title{
+	height: 5rem;
+	font-size: 6rem;
+	line-height: 5rem;
+	margin-bottom: 2rem;
+}
+.rightBanner{
+	text-shadow: 0 0 20px #f0f0f0;
+	color: #000000;
+	background: none;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	position: absolute;
+	width: 10vw;
+	z-index: 1;
+	right:10vh;
+	bottom: 5vh;
+}
+.leftBanner{
+	text-shadow: 0 0 20px #000000;
+	color: #f0f0f0;
+	background: none;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	position: absolute;
+	width: 45vw;
+	height: 60vh;
+	z-index: 1;
+	left: 15vh;
+}
+.swiperimage{
+	width: 100%;
+	height: 100%;
+}
+.bottom{
+	text-align: center;
+	bottom: 0;
+	padding-bottom: 0;
+}
+.disciption{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.swiperitem{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.swiper{
+	text-align: center;
+	height: 100vh;
+	min-width: 90vh;
+}
+.pic{
+	width: 100vh;
+	height: 90vh;
+}
+.main{
+	background-image: linear-gradient(white,whitesmoke);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    min-height: 90vh;
+	margin-bottom: 0;
+}
+.body{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+	padding: 10vh;
+}
+.registerButton{
+	background-image: linear-gradient(#ccf1ff, #9deadc);
+	text-shadow: 0 0 5px #f0f0f0;
+	color: #000000;
+	height: 35px;
+	text-align: center;
+}
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
