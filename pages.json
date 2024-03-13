@@ -24,16 +24,6 @@
 		}
 	},
 	{
-		"path" : "pages/index/register",
-		"style" : 
-		{
-			"navigationBarTitleText" : "请先注册",
-			"enablePullDownRefresh" : false,
-			"animationType": "fade-in",
-			"animationDuration": 300
-		}
-	},
-	{
 		"path" : "pages/homepage/homepage",
 		"style" : 
 		{
