@@ -35,9 +35,12 @@
 		</view>
 		<!--类星系导航栏部分-->
 		<view  class="solar-syst section">
-			<view class="sun"></view>
+			<view class="sun" id="sun"></view>
 			<view class="star1">
-				<image class="image" src="../../images/homepage/1.png"></image>
+				<navigator url="/pages/healthcheck/healthcheck">
+					aaa
+					<image class="image" src="../../images/homepage/1.png"></image>
+				</navigator>
 			</view>
 			<view class="star2">
 				<image class="image" src="../../images/homepage/2.png"></image>
@@ -75,6 +78,14 @@
 	onMounted(() => {
 		$();
 	})
+	function hover(id){
+		console.log(id);
+		if(id == 1){
+			uni.navigateTo({
+				url:"/pages/healthcheck/healthcheck"
+			})
+		}
+	}
 	function actionsClick(text){
 		uni.showToast({
 			title:text,
@@ -100,8 +111,8 @@
 	  margin: 0;
 	}
 	.image{
-		max-width: 100px;
-		max-height: 100px;
+		width: 100px;
+		height: 100px;
 		top: -50px;
 		position: absolute;
 		left: 50%;

@@ -1,7 +1,7 @@
 let data = [7, 2, 0, 0, 0, 0, 0, 6]
 let indicator = [
 
-    { name: '动火', max: 10 },
+    { name: '头部', max: 10 },
     { name: '受限空间', max: 10 },
     { name: '盲板抽堵', max: 10 },
     { name: '高处作业', max: 10 },
@@ -11,7 +11,7 @@ let indicator = [
     { name: '临时用电', max: 10 }
 ]
 
-option = {
+let option = {
     backgroundColor: '#000928',
     tooltip: {},
     radar: {
@@ -45,7 +45,6 @@ option = {
         label: {
             show: true,
             formatter: function (params) {
-                console.log(params)
                 return params.value;
             },
             color: '#fff',
@@ -201,3 +200,4 @@ option = {
     },
     ]
 };
+export {option,indicator};

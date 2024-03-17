@@ -37,24 +37,55 @@
 			</view>
 		</view>
 		<view class="center">
+			<view class="button">
+				
+			</view>
 			<image id="bodypic" src="../../images/healthcheck/bodystatic.png"></image>
 			<image id="rotatebody" src="../../images/healthcheck/bodyrotate.png"></image>
 		</view>
 		<view class="right">
-			<view class="right-1"></view>
-			<view class="right-2"></view>
-			<view class="right-3"></view>
-			<view class="right-4"></view>
-			<view class="right-5"></view>
+			<view class="right-1">
+				<view class="title">
+					<view>患者信息</view>
+				</view>
+			</view>
+			<view class="right-2">
+				<view class="title">
+					<view>简要病史</view>
+				</view>
+			</view>
+			<view class="right-3">
+				<view id="radar" style="width: 100%; height: 100%;"></view>
+			</view>
+			<view class="right-4">
+				<view id="bp" style="width: 100%; height: 100%;"></view>
+			</view>
+			<view class="right-5">
+				<view id="hwb" style="width: 100%; height: 100%;"></view>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
-	import navtitle from "../../components/navtitle.vue"
-	setTimeout(function(){
-		document.getElementById("rotatebody").classList.add("hidden");
-	}, 6000)
+import * as echarts from 'echarts';
+import { onMounted } from 'vue';
+import navtitle from "../../components/navtitle.vue";
+import {option as radaroption} from '../../assets/js/radar.js';
+import {option as bpoption} from '../../assets/js/bloodPressure.js';
+import {option as hwboption} from '../../assets/js/weight.js';
+onMounted(()=>{
+	const myChart1 = echarts.init(document.getElementById('radar'));
+	myChart1.setOption(radaroption);
+	const myChart2 = echarts.init(document.getElementById('bp'));
+	myChart2.setOption(bpoption);
+	const myChart3 = echarts.init(document.getElementById('hwb'));
+	myChart3.setOption(hwboption);
+})
+setTimeout(function(){
+	document.getElementById("rotatebody").classList.add("hidden");
+}, 6000)
+
 </script>
 
 <style>
@@ -178,8 +209,10 @@
 			linear-gradient(#33cdfa, #33cdfa) right bottom;
 		background-repeat: no-repeat;
 		background-size: 0.1vw 1.5vw, 1.5vw 0.1vw;
+		
+		position: relative;
 		width: 100%;
-		height: 180px;
+		height: 150px;
 		padding: 5px;
 	}
 	.right-2{
@@ -194,6 +227,7 @@
 			linear-gradient(#33cdfa, #33cdfa) right bottom;
 		background-repeat: no-repeat;
 		background-size: 0.1vw 1.5vw, 1.5vw 0.1vw;
+		position: relative;
 		width: 100%;
 		height: 145px;
 		margin-top: 10px;
@@ -211,8 +245,9 @@
 			linear-gradient(#33cdfa, #33cdfa) right bottom;
 		background-repeat: no-repeat;
 		background-size: 0.1vw 1.5vw, 1.5vw 0.1vw;
+		position: relative;
 		width: 100%;
-		height: 150px;
+		height: 180px;
 		margin-top: 30px;
 		padding: 5px;
 	}
@@ -228,6 +263,7 @@
 			linear-gradient(#33cdfa, #33cdfa) right bottom;
 		background-repeat: no-repeat;
 		background-size: 0.1vw 1.5vw, 1.5vw 0.1vw;
+		position: relative;
 		width: 100%;
 		height: 160px;
 		margin-top: 15px;
@@ -245,6 +281,7 @@
 			linear-gradient(#33cdfa, #33cdfa) right bottom;
 		background-repeat: no-repeat;
 		background-size: 0.1vw 1.5vw, 1.5vw 0.1vw;
+		position: relative;
 		width: 100%;
 		height: 160px;
 		margin-top: 15px;
