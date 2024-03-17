@@ -46,6 +46,14 @@
 			"navigationBarTitleText" : "",
 			"enablePullDownRefresh" : false
 		}
+	},
+	{
+		"path" : "pages/healthcheck/healthcheck",
+		"style" : 
+		{
+			"navigationBarTitleText" : "",
+			"enablePullDownRefresh" : false
+		}
 	}
 	],
 	"globalStyle": {

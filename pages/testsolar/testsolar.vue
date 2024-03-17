@@ -1,39 +1,19 @@
 <template>
 	<view class="solar-syst">
-	</view>
-	<view class="solar-syst">
-	  <view class="sun"></view>
-	  <view class="mercury">
-		  <image class="image" src="../../images/homepage/轮播图1.jpg"></image>
-	  </view>
+		<view class="sun"></view>
+		<view class="smile">
+			<image class="image" src="../../images/homepage/轮播图1.jpg"></image>
+		</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			
-		}
-	}
+<script setup>
 </script>
 
 <style>
-body {
-  
-}
 *, *::before, *::after {
   padding: 0;
   margin: 0;
-}
-.image{
-	max-width: 50px;
-	max-height: 50px;
-	border-radius: 5px;
 }
 .solar-syst {
 	background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
@@ -59,14 +39,12 @@ body {
   z-index: 999;
   border-radius: 1000px;
 }
-.solar-syst view:not(.sun) {
-  border: 1px solid rgba(102, 166, 229, 0.15);
-}
 .solar-syst view:not(.sun)::before {
   content: "";
   position: absolute;
   left: 50%;
   border-radius: 1000px;
+  border: 1px solid rgba(102, 166, 229, 0.15);
 }
 .sun {
 	border-radius: 0;
@@ -80,31 +58,33 @@ body {
 	margin-top: -40px;
 	margin-left: -40px;
 }
-.mercury {
-  height: 150px;
-  width: 150px;
-  margin-top: -75px;
-  margin-left: -75px;
-  animation: orbit 7.2s linear infinite;
-}
-.mercury::before {
-  height: 50px;
-  width: 50px;
-  background: none;
-  margin-left: -20px;
-  margin-top: -20px;
-}
-@keyframes once-show {
-    from {
-        top: 0;
-    }
-}
-@keyframes orbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
+	.smile{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: -40px;
+		margin-left: -40px;
+		width: 80px;
+		height: 80px;
+		font-size: 80px;
+		animation: action 10s linear infinite;
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		z-index: 999;
+	}
+	.image{
+		max-width: 50px;
+		max-height: 50px;
+		border-radius: 1000px;
+	}
+	@keyframes action {
+		from {
+			transform: rotate(0deg) translate(80px) rotate(0deg);
+		}
+		to {
+		transform: rotate(360deg) translate(80px) rotate(-360deg);
+		}
+	}
 </style>
