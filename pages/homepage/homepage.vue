@@ -34,25 +34,54 @@
 			</swiper>
 		</view>
 		<!--类星系导航栏部分-->
-		<view  class="solar-syst section">
-			<view class="sun" id="sun"></view>
-			<view class="star1">
+		<view class="solar-syst sectionself">
+			<view class="sun">
 				<navigator url="/pages/healthcheck/healthcheck">
-					aaa
-					<image class="image" src="../../images/homepage/1.png"></image>
+					<image class="sun-image" src="../../images/homepage/sun.png"></image>
 				</navigator>
 			</view>
+			
+			<view class="star1">
+				<navigator url="/pages/healthcheck/healthcheck">
+					<image class="image" src="../../images/homepage/1.png" @mouseover='show1 = true' @mouseleave='show1 = false'></image>
+					<label style="color: white;font-size: 25px;">
+						个人健康
+					</label>
+				</navigator>
+			</view>
+			<view class="star1-rail"></view>
+			
 			<view class="star2">
-				<image class="image" src="../../images/homepage/2.png"></image>
+				<navigator url="/pages/chat/chat">
+					<image class="image" src="../../images/homepage/2.png" @mouseover='show2 = true' @mouseleave='show2 = false'></image>
+					<label style="color: white;font-size: 25px;">
+						个人健康
+					</label>
+				</navigator>
 			</view>
+			<view class="star2-rail"></view>
+			
 			<view class="star3">
-				<image class="image" src="../../images/homepage/3.png"></image>
+				<navigator url="/pages/chat/chat">
+					<image class="image" src="../../images/homepage/3.png" @mouseover='show3 = true' @mouseleave='show3 = false'></image>
+					<label style="color: white;font-size: 25px;">
+						个人健康
+					</label>
+				</navigator>
 			</view>
+			<view class="star3-rail"></view>
+			
 			<view class="star4">
-				<image class="image" src="../../images/homepage/4.png"></image>
+				<navigator url="/pages/chat/chat">
+					<image class="image" src="../../images/homepage/4.png" @mouseover='show4 = true' @mouseleave='show4 = false'></image>
+					<label style="color: white;font-size: 25px;">
+						个人健康
+					</label>
+				</navigator>
 			</view>
-			<view class="asteroid-belt"></view>
+			<view class="star4-rail"></view>
 		</view>
+		
 		<view class="disciption">
 			<view class="sectionself">
 				<uni-section title="可添加部分" type="line" style="width: 80vw;background:inherit;" title-color="white">
@@ -73,8 +102,12 @@
 </template>
  
 <script setup>
-	import { onMounted } from "vue";
+	import { onMounted, ref } from "vue";
 	import { $ } from "../../assets/js/stellar.js";
+	const show1 = ref(false);
+	const show2 = ref(false);
+	const show3 = ref(false);
+	const show4 = ref(false);
 	onMounted(() => {
 		$();
 	})
@@ -93,7 +126,7 @@
 		});
 	}
 </script>
-<style>
+<style lang="scss">
 	.sectionself{
 		width: 100vw;
 		height: 100vh;
@@ -104,123 +137,196 @@
 		top: 10px;
 		z-index: 3;
 		text-align: center;
-		font-family: ;
 	}
-	*, *::before, *::after {
-	  padding: 0;
-	  margin: 0;
-	}
-	.image{
-		width: 100px;
-		height: 100px;
-		top: -50px;
-		position: absolute;
-		left: 50%;
+	
+	
+	$sun-radius: 500px;
+	$star1-radius: 350px;
+	$star2-radius: 450px;
+	$star3-radius: 550px;
+	$star4-radius: 650px;
+	$image: 100px;
+	
+	.sun-image{
+		height: $sun-radius;
+		width: $sun-radius;
 	}
 	.solar-syst {
 		background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
 		background-attachment: fixed;
 		margin: 0 auto;
-		height: 100vh;
+		min-height: 100vh;
 		width: 100vw;
+		overflow: clip;
 		position: relative;
 	}
 	.solar-syst::after {
-	  content: "";
-	  position: absolute;
-	  height: 2px;
-	  width: 2px;
-	  top: -2px;
-	  background: white;
-	  border-radius: 100px;
+		z-index: auto;
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 2px;
+		top: -2px;
+		background: white;
+		border-radius: 100px;
 	}
 	.solar-syst view {
-	  top: 50%;
-	  left: 50%;
-	  position: absolute;
-	  z-index: 999;
-	  border-radius: 1000px;
-	}
-	.solar-syst view:not(.sun) {
-	  border: 1px solid rgba(102, 166, 229, 0.15);
-	}
-	.solar-syst view:not(.sun)::before {
-	  content: "";
-	  position: absolute;
-	  left: 50%;
-	  border-radius: 1000px;
-	}
-	.solar-syst div:not(.asteroid-belt)::before{
-	  box-shadow: inset 0 6px 0 -2px rgba(0, 0, 0, 0.25);
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		border-radius: 1000px;
 	}
 	.sun {
+		position: absolute;
 		border-radius: 0;
-		background-image: url(../../images/homepage/sun.png);
 		background-size: 100%;
 		background-clip: padding-box;
-		box-shadow: 0 0 10px 2px rgba(255, 107, 0, 0.4), 0 0 22px 11px rgba(255, 203, 0, 0.13);
 		border: 0;
-		height: 500px;
-		width: 500px;
-		margin-top: -250px;
-		margin-left: -250px;
-		animation: orbit 60s linear infinite;
+		height: $sun-radius;
+		width: $sun-radius;
+		margin-top: - calc($sun-radius / 2);
+		margin-left: - calc($sun-radius / 2);
+		z-index: 5;
 	}
-	.star1 {
-	  height: 700px;
-	  width: 700px;
-	  margin-top: -350px;
-	  margin-left: -350px;
-	  animation: orbit 15s linear infinite;
+	
+	.star1{
+		position: absolute;
+		height: $image;
+		width: $image;
+		margin-top: - calc($image / 2);
+		margin-left: - calc($image / 2);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		animation: action1 30s linear infinite;
+		animation-delay: -10s;
+		z-index: 4;
 	}
-	.star2 {
-	  height: 900px;
-	  width: 900px;
-	  margin-top: -450px;
-	  margin-left: -450px;
-	  animation: orbit 20s linear infinite;
+	.star1-rail{
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		height: calc($star1-radius * 2);
+		width: calc($star1-radius * 2);
+		margin-top: - $star1-radius;
+		margin-left: - $star1-radius;
+		border: 1px solid rgba(102, 166, 229, 0.15);
 	}
-	.star3 {
-	  height: 800px;
-	  width: 800px;
-	  margin-top: -400px;
-	  margin-left: -400px;
-	  animation: orbit 8s linear infinite;
+	@keyframes action1 {
+		from {
+			transform: rotate(0deg) translate($star1-radius) rotate(0deg);
+		}
+		to {
+		transform: rotate(360deg) translate($star1-radius) rotate(-360deg);
+		}
 	}
-	.star4 {
-	  height: 500px;
-	  width: 500px;
-	  margin-top: -250px;
-	  margin-left: -250px;
-	  animation: orbit 10s linear infinite;
+	
+	.star2{
+		position: absolute;
+		height: $image;
+		width: $image;
+		margin-top: - calc($image / 2);
+		margin-left: - calc($image / 2);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		animation: action2 40s linear infinite;
+		animation-delay: -3s;
+		z-index: 3;
 	}
-	.asteroid-belt {
-	  height: 900px;
-	  width: 900px;
-	  margin-top: -450px;
-	  margin-left: -450px;
-	  border-color: transparent !important;
-	  overflow: hidden;
-	  opacity: 0.7;
-	  animation: orbit 180s linear infinite;
+	.star2-rail{
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		height: calc($star2-radius * 2);
+		width: calc($star2-radius * 2);
+		margin-top: - $star2-radius;
+		margin-left: - $star2-radius;
+		border: 1px solid rgba(102, 166, 229, 0.15);
 	}
-	.asteroid-belt::before {
-	  top: 50%;
-	  height: 210px;
-	  width: 210px;
-	  margin-left: -105px;
-	  margin-top: -105px;
-	  background: transparent;
-	  border-radius: 140px;
+	@keyframes action2 {
+		from {
+			transform: rotate(0deg) translate($star2-radius) rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg) translate($star2-radius) rotate(-360deg);
+		}
 	}
-	@keyframes orbit {
-	  from {
-	    transform: rotate(0deg);
-	  }
-	  to {
-	    transform: rotate(-360deg);
-	  }
+	
+	.star3{
+		position: absolute;
+		height: $image;
+		width: $image;
+		margin-top: - calc($image / 2);
+		margin-left: - calc($image / 2);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		animation: action3 50s linear infinite;
+		animation-delay: -15s;
+		z-index: 2;
 	}
+	.star3-rail{
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		height: calc($star3-radius * 2);
+		width: calc($star3-radius * 2);
+		margin-top: - $star3-radius;
+		margin-left: - $star3-radius;
+		border: 1px solid rgba(102, 166, 229, 0.15);
+	}
+	@keyframes action3 {
+		from {
+			transform: rotate(0deg) translate($star3-radius) rotate(0deg);
+		}
+		to {
+		transform: rotate(360deg) translate($star3-radius) rotate(-360deg);
+		}
+	}
+	
+	.star4{
+		position: absolute;
+		height: $image;
+		width: $image;
+		margin-top: - calc($image / 2);
+		margin-left: - calc($image / 2);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		animation: action4 60s linear infinite;
+		animation-delay: -5s;
+		z-index: 1;
+	}
+	.star4-rail{
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		height: calc($star4-radius * 2);
+		width: calc($star4-radius * 2);
+		margin-top: - $star4-radius;
+		margin-left: - $star4-radius;
+		border: 1px solid rgba(102, 166, 229, 0.15);
+	}
+	@keyframes action4 {
+		from {
+			transform: rotate(0deg) translate($star4-radius) rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg) translate($star4-radius) rotate(-360deg);
+		}
+	}
+	
+	.image{
+		width: $image;
+		height: $image;
+	}
+	
+	
 	.leftnav{
 		top: 15vh;
 		background-color: transparent;

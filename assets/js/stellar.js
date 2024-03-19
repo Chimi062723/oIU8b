@@ -10,8 +10,8 @@ export function $() {
   let style = document.createElement('style');
   document.head.appendChild(style);
   let sheet = style.sheet;
-  let asteroidBeltStars = getRandomStar(1000, 3000, -290/2, '-104px');
+  let asteroidBeltStars = getRandomStar(1000, 1000, '5px', '-5px');
   sheet.insertRule('.asteroid-belt::before {box-shadow: ' + asteroidBeltStars + '}');
-  let wholeBackgroundStars = getRandomStar(1080, 1920, 0, 0);
-  sheet.insertRule('.solar-syst::after { box-shadow: ' + wholeBackgroundStars + ' }');
+  let wholeBackgroundStars = getRandomStar(2000, 3000, 0, 0);
+  sheet.insertRule('.solar-syst::after {position:absolute; box-shadow: ' + wholeBackgroundStars + ' }');
 }
