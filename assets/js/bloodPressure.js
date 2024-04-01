@@ -39,7 +39,7 @@ let option = {
       itemGap: 60,
       textStyle: {
          color: "#C0C4CC",
-         fontSize: 13,
+         fontSize: 10,
          fontWeight: 'bold',
       },
       data: ["血压", "血糖"]
@@ -64,7 +64,7 @@ let option = {
       axisLabel: {
          margin: 10,
          textStyle: {
-            fontSize: 14,
+            fontSize: 11,
             color: "#C0C4CC"
          }
       }
@@ -77,7 +77,7 @@ let option = {
          nameTextStyle: {
             padding: [0, 80, 0, 0],
             color: '#C0C4CC',
-            fontSize: 13,
+            fontSize: 10,
             fontWeight: 'bold',
             // lineHeight: 40,
          },
@@ -99,7 +99,7 @@ let option = {
             show: false,
             margin: 2,
             textStyle: {
-               fontSize: 12,
+               fontSize: 9,
                color: "#DEEBFF"
             }
          }
@@ -127,7 +127,7 @@ let option = {
          markLine: {
             name: 'aa',
             // symbol: ['image://' + arrowBj],
-            symbolSize: [12, 6],
+            symbolSize: [10, 4],
             lineStyle: {
                type: 'dashed',
                color: '#287CE8'
@@ -145,7 +145,7 @@ let option = {
          },
          markPoint: {
             symbol: 'circle',
-            symbolSize: [14, 14], // 容器大小
+            symbolSize: [11, 11], // 容器大小
             symbolOffset: ['0%', '0%'],
             data: [
                {
@@ -157,7 +157,7 @@ let option = {
             label: {
                show: true,
                position: 'top',
-               fontSize: 14,
+               fontSize: 12,
                color: '#287CE8',
             }
          }
@@ -182,7 +182,7 @@ let option = {
          markLine: {
             name: 'aa',
             // symbol: ['image://' + arrowGz],
-            symbolSize: [12, 6],
+            symbolSize: [10, 4],
             lineStyle: {
                type: 'dashed',
                color: '#287CE8'
@@ -198,7 +198,7 @@ let option = {
          },
          markPoint: {
             symbol: 'circle',
-            symbolSize: [14, 14], // 容器大小
+            symbolSize: [11, 11], // 容器大小
             symbolOffset: ['0%', '0%'],
             data: [
                {
@@ -210,7 +210,7 @@ let option = {
             label: {
                show: true,
                position: 'top',
-               fontSize: 14,
+               fontSize: 11,
                color: '#38FFBA',
             }
          }

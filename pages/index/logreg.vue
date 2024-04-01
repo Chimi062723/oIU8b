@@ -1,25 +1,25 @@
 <template>
 	<view class="main">
 		<view v-bind:class="{'container':true, 'right-panel-active':active2}">
-			<!-- Sign Up -->
+			<!-- 注册 -->
 			<view class="container__form container--signup">
 				<form action="#" class="form" id="form1">
-					<h2 class="form__title">Sign Up</h2>
-					<input type="text" placeholder="User" class="input" />
-					<input type="email" placeholder="Email" class="input" />
-					<input type="password" placeholder="Password" class="input" />
-					<button class="btn" @click="signup">Sign Up</button>
+					<h2 class="form__title">注册</h2>
+					<input name="username" type="text" v-model="user.username" placeholder="用户名" class="input" />
+					<input name="phone" type="tel" v-model="user.phone" placeholder="手机" class="input" />
+					<input name="password" type="password" v-model="user.password" placeholder="密码" class="input" />
+					<button class="btn" @click="signup">注册</button>
 				</form>
 			</view>
 		
-			<!-- Sign In -->
+			<!-- 登录 -->
 			<view class="container__form container--signin">
 				<form action="#" class="form" id="form2">
-					<h2 class="form__title">Sign In</h2>
-					<input type="email" placeholder="Email" class="input" />
-					<input type="password" placeholder="Password" class="input" />
+					<h2 class="form__title">登录</h2>
+					<input type="tel" v-model="user.phone" placeholder="手机号" class="input" />
+					<input type="password" v-model="user.password" placeholder="密码" class="input" />
 					<a href="#" class="link">Forgot your password?</a>
-					<button class="btn" @click="signin">Sign In</button>
+					<button class="btn" @click="signin">登录</button>
 				</form>
 			</view>
 		
@@ -27,10 +27,10 @@
 			<view class="container__overlay">
 				<view class="overlay">
 					<view class="overlay__panel overlay--left">
-						<button class="btn" id="signIn" @click="change"                                                                                                                                                         >Sign In</button>
+						<button class="btn" id="signIn" @click="change">登录</button>
 					</view>
 					<view class="overlay__panel overlay--right">
-						<button class="btn" id="signUp" @click="change">Sign Up</button>
+						<button class="btn" id="signUp" @click="change">注册</button>
 					</view>
 				</view>
 			</view>
@@ -39,22 +39,43 @@
 </template>
 
 <script setup>
-	import { ref } from "vue";
-	const active2 = ref(true);
-	function change(){
-		console.log(active2.value)
-		active2.value = !active2.value;
-	}
-	function signin(){
+import { put,get,post } from "../../assets/js/promise.js";
+import { onMounted, ref } from "vue";
+// import { useStore } from "vuex";
+// const store = useStore();
+let user = {
+	"username" : '',
+	"phone" : '',
+	"password" : ''
+}
+const active2 = ref(true);
+function change(){
+	active2.value = !active2.value;
+}
+function signin(){
+	post("http://127.0.0.1:41729/user/user/login",user)
+	.then(response =>{
+		sessionStorage.setItem("user", JSON.stringify(response.data));
 		uni.redirectTo({
-			url:"../homepage/homepage"
+		 	url:"../homepage/homepage"
 		})
-	}
-	function signup(){
+	}).catch(err =>{
+		uni.showToast({
+			title: err.message
+		})
+	})
+}
+function signup(){
+	post("http://127.0.0.1:41729/user/user/add",user)
+	.then(response =>{
+		sessionStorage.setItem("user", JSON.stringify(response.data));
 		uni.redirectTo({
-			url:"../homepage/homepage"
+		 	url:"../homepage/homepage"
 		})
-	}
+	}).catch(err =>{
+		console.error(`Request failed.Url = ${url} . Message = ${response.statusText}`)
+	})
+}
 </script>
 	
 <style>

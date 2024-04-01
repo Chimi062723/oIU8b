@@ -8,7 +8,7 @@
 			</view>
 			<!--右侧横幅-->
 			<view class="rightBanner">
-				<span class="registerButton">注册</span>
+				<span class="registerButton" @click="reg">注册</span>
 			</view>
 			<!--右上角宣传标语-->
 			<view class="rightup">
@@ -36,7 +36,7 @@
 		<!--类星系导航栏部分-->
 		<view class="solar-syst sectionself">
 			<view class="sun">
-				<navigator url="/pages/healthcheck/healthcheck">
+				<navigator url="">
 					<image class="sun-image" src="../../images/homepage/sun.png"></image>
 				</navigator>
 			</view>
@@ -55,27 +55,27 @@
 				<navigator url="/pages/chat/chat">
 					<image class="image" src="../../images/homepage/2.png" @mouseover='show2 = true' @mouseleave='show2 = false'></image>
 					<label style="color: white;font-size: 25px;">
-						个人健康
+						智慧医疗
 					</label>
 				</navigator>
 			</view>
 			<view class="star2-rail"></view>
 			
 			<view class="star3">
-				<navigator url="/pages/chat/chat">
+				<navigator url="/pages/">
 					<image class="image" src="../../images/homepage/3.png" @mouseover='show3 = true' @mouseleave='show3 = false'></image>
 					<label style="color: white;font-size: 25px;">
-						个人健康
+						健康规划
 					</label>
 				</navigator>
 			</view>
 			<view class="star3-rail"></view>
 			
 			<view class="star4">
-				<navigator url="/pages/chat/chat">
+				<navigator url="/pages/Inquisition/Inquisition_a">
 					<image class="image" src="../../images/homepage/4.png" @mouseover='show4 = true' @mouseleave='show4 = false'></image>
 					<label style="color: white;font-size: 25px;">
-						个人健康
+						远程问诊
 					</label>
 				</navigator>
 			</view>
@@ -111,19 +111,10 @@
 	onMounted(() => {
 		$();
 	})
-	function hover(id){
-		console.log(id);
-		if(id == 1){
-			uni.navigateTo({
-				url:"/pages/healthcheck/healthcheck"
-			})
-		}
-	}
-	function actionsClick(text){
-		uni.showToast({
-			title:text,
-			icon:'none'
-		});
+	function reg(){
+		uni.navigateTo({
+			url:'/pages/index/logreg'
+		})
 	}
 </script>
 <style lang="scss">

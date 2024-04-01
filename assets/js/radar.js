@@ -1,14 +1,13 @@
 let data = [7, 2, 0, 0, 0, 0, 0, 6]
 let indicator = [
-
     { name: '头部', max: 10 },
-    { name: '受限空间', max: 10 },
-    { name: '盲板抽堵', max: 10 },
-    { name: '高处作业', max: 10 },
-    { name: '吊装', max: 10 },
-    { name: '动土', max: 10 },
-    { name: '短路', max: 10 },
-    { name: '临时用电', max: 10 }
+    { name: '腰部', max: 10 },
+    { name: '肩部', max: 10 },
+    { name: '肾', max: 10 },
+    { name: '大腿', max: 10 },
+    { name: '胃', max: 10 },
+    { name: '心脏', max: 10 },
+    { name: '肺', max: 10 }
 ]
 
 let option = {
@@ -32,7 +31,7 @@ let option = {
         name: {
             textStyle: {
                 color: '#F2F3F5',
-                fontSize: '20',
+                fontSize: '10',
                 borderRadius: 3,
                 padding: [3, 5]
             }

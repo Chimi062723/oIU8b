@@ -19,12 +19,13 @@
 		</view>
        <view class="title-right">
            <view class="title-right-image">
-			   <image src="/images/navbac/用户.png" style="width: 100%; height: 100%;"></image>
+			   <image src="/images/navbac/用户.png" style="top:10px;width: 70%; height: 70%;"></image>
 		   </view>
        </view>
    </view>
 </template>
 <script setup>
+	
 </script>
 <style>
 	.text{
@@ -37,7 +38,7 @@
 	position: relative;
 	top: 0;
     margin-left: 0px;
-    height: 7vh;
+    height: 60px;
     width: 100%;
     background-color:#1e1e1e;
     display: flex;
@@ -45,14 +46,14 @@
 }
 .title-left{
     width: 580px;
-    height: 7vh;
+    height: 60px;
     margin-left: 0;
     background:#1e1e1e;
     display: flex;
 
 }
 .title-left-image{
-    height: 7vh;
+    height: 60px;
     width:120px
 }
 span{
@@ -60,11 +61,11 @@ span{
 }
  a{
     width: 70px;
-    height: 7vh;
+    height: 60px;
     color: black;
     margin: 0px 10px;
     text-decoration: none;
-     line-height: 7vh;
+     line-height: 60px;
      text-align: center
 }
  a:hover{
@@ -97,7 +98,7 @@ span{
   text-align: center;
   background: rgba(204, 51, 0, 1);
   border-left:1px solid rgba(0, 0, 0, 0.45);
-  width:100px;
+  width:60px;
   height: 32px;
   line-height: 34px;
   border-top-right-radius: 18px;
@@ -105,13 +106,12 @@ span{
 }
 .title-right{
      width: 380px;
-    height: 7vh;
+    height: 60px;
     display: flex;
 }
 .title-right-image{
-    width: 7vh;
-    height: 7vh;
-    border: 1px solid black;
+    width: 60px;
+    height: 60px;
     border-radius: 30px;
     margin: auto ;
     margin-left: 40px;

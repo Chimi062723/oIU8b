@@ -8,7 +8,7 @@
 		}
 	},
 	{
-		"path" : "pages/mainpage/mainpage",
+		"path" : "pages/test/cameratest",
 		"style" : 
 		{
 			"navigationBarTitleText" : "",
@@ -16,7 +16,7 @@
 		}
 	},
 	{
-		"path" : "pages/chat/chat",
+		"path" : "pages/mainpage/mainpage",
 		"style" : 
 		{
 			"navigationBarTitleText" : "",
@@ -32,15 +32,7 @@
 		}
 	},
 	{
-		"path" : "pages/Inquisition/Inquisition",
-		"style" : 
-		{
-			"navigationBarTitleText" : "",
-			"enablePullDownRefresh" : false
-		}
-	},
-	{
-		"path" : "pages/testsolar/testsolar",
+		"path" : "pages/Inquisition/Inquisition_a",
 		"style" : 
 		{
 			"navigationBarTitleText" : "",
