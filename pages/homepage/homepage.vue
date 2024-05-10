@@ -6,16 +6,16 @@
 			<view class="leftBanner">
 				<image src="../../images/homepage/蒙版标题.png" style="width: 100%;height: 100%;"></image>
 			</view>
-			<!--右侧横幅-->
+<!-- 			右侧横幅
 			<view class="rightBanner">
 				<span class="registerButton" @click="reg">注册</span>
-			</view>
+			</view> -->
 			<!--右上角宣传标语-->
 			<view class="rightup">
-				<image src="../../images/homepage/宣传语.png" style="width: 15vw;height: 15vh;"></image>
+				<image src="../../images/homepage/宣传语.png" style="width: 600rpx;height: 15vh;"></image>
 			</view>
 			<!-- 首页上方轮播图部分 -->
-			<swiper class="swiper" circular="true" autoplay="true" interval="10000">
+			<swiper class="swiper" circular="true" :autoplay="true" interval="3000">
 				<swiper-item class="swiperitem">
 					<image class="swiperimage" src="../../images/homepage/轮播图1.jpg"></image>
 				</swiper-item>
@@ -52,22 +52,24 @@
 			<view class="star1-rail"></view>
 			
 			<view class="star2">
-				<navigator url="/pages/chat/chat">
+				<a href="http://47.101.34.15:18005/chat">
+				<!-- <a href="/chat"> -->
 					<image class="image" src="../../images/homepage/2.png" @mouseover='show2 = true' @mouseleave='show2 = false'></image>
 					<label style="color: white;font-size: 25px;">
 						智慧医疗
 					</label>
-				</navigator>
+				</a>
 			</view>
 			<view class="star2-rail"></view>
 			
 			<view class="star3">
-				<navigator url="/pages/">
+				<a href="http://47.101.34.15:18005/screen">
+				<!-- <a href="/screen"> -->
 					<image class="image" src="../../images/homepage/3.png" @mouseover='show3 = true' @mouseleave='show3 = false'></image>
 					<label style="color: white;font-size: 25px;">
-						健康规划
+						饮食规划
 					</label>
-				</navigator>
+				</a>
 			</view>
 			<view class="star3-rail"></view>
 			
@@ -82,21 +84,20 @@
 			<view class="star4-rail"></view>
 		</view>
 		
-		<view class="disciption">
+<!-- 		<view class="disciption">
 			<view class="sectionself">
-				<uni-section title="可添加部分" type="line" style="width: 80vw;background:inherit;" title-color="white">
-					后续打算在下面添加其他介绍等部分，上面负责主要功能
-				</uni-section>
+				<uni-card></uni-card>
 			</view>
 			<view class="sectionself">
 				<uni-section title="可添加部分" type="line" style="width: 80vw;background:inherit;" title-color="white">
 					后续打算在下面添加其他介绍等部分，上面负责主要功能
 				</uni-section>
 			</view>
-		</view>
+		</view> -->
 		<!--底部栏位，展示隐私条款及产品详情部分-->
 		<view class="bottom">
-			这是底部栏
+			<a>隐私条款</a>
+			<a>产品详情</a>
 		</view>
 	</view>
 </template>
@@ -117,7 +118,7 @@
 		})
 	}
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 	.sectionself{
 		width: 100vw;
 		height: 100vh;
@@ -190,7 +191,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		animation: action1 30s linear infinite;
+		animation: action1 7s linear infinite;
 		animation-delay: -10s;
 		z-index: 4;
 	}
@@ -206,10 +207,10 @@
 	}
 	@keyframes action1 {
 		from {
-			transform: rotate(0deg) translate($star1-radius) rotate(0deg);
+			transform: rotate(-45deg) translate($star1-radius) rotate(45deg);
 		}
 		to {
-		transform: rotate(360deg) translate($star1-radius) rotate(-360deg);
+		transform: rotate(45deg) translate($star1-radius) rotate(-45deg);
 		}
 	}
 	
@@ -223,7 +224,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		animation: action2 40s linear infinite;
+		animation: action2 10s linear infinite;
 		animation-delay: -3s;
 		z-index: 3;
 	}
@@ -239,10 +240,10 @@
 	}
 	@keyframes action2 {
 		from {
-			transform: rotate(0deg) translate($star2-radius) rotate(0deg);
+			transform: rotate(-45deg) translate($star2-radius) rotate(45deg);
 		}
 		to {
-			transform: rotate(360deg) translate($star2-radius) rotate(-360deg);
+		transform: rotate(45deg) translate($star2-radius) rotate(-45deg);
 		}
 	}
 	
@@ -256,7 +257,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		animation: action3 50s linear infinite;
+		animation: action3 7s linear infinite;
 		animation-delay: -15s;
 		z-index: 2;
 	}
@@ -264,18 +265,18 @@
 		top: 50%;
 		left: 50%;
 		position: absolute;
-		height: calc($star3-radius * 2);
-		width: calc($star3-radius * 2);
-		margin-top: - $star3-radius;
-		margin-left: - $star3-radius;
+		height: calc($star1-radius * 2);
+		width: calc($star1-radius * 2);
+		margin-top: - $star1-radius;
+		margin-left: - $star1-radius;
 		border: 1px solid rgba(102, 166, 229, 0.15);
 	}
 	@keyframes action3 {
 		from {
-			transform: rotate(0deg) translate($star3-radius) rotate(0deg);
+			transform: rotate(-225deg) translate($star1-radius) rotate(225deg);
 		}
 		to {
-		transform: rotate(360deg) translate($star3-radius) rotate(-360deg);
+		transform: rotate(-135deg) translate($star1-radius) rotate(135deg);
 		}
 	}
 	
@@ -289,7 +290,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		animation: action4 60s linear infinite;
+		animation: action4 10s linear infinite;
 		animation-delay: -5s;
 		z-index: 1;
 	}
@@ -297,18 +298,18 @@
 		top: 50%;
 		left: 50%;
 		position: absolute;
-		height: calc($star4-radius * 2);
-		width: calc($star4-radius * 2);
-		margin-top: - $star4-radius;
-		margin-left: - $star4-radius;
+		height: calc($star2-radius * 2);
+		width: calc($star2-radius * 2);
+		margin-top: - $star2-radius;
+		margin-left: - $star2-radius;
 		border: 1px solid rgba(102, 166, 229, 0.15);
 	}
 	@keyframes action4 {
 		from {
-			transform: rotate(0deg) translate($star4-radius) rotate(0deg);
+			transform: rotate(-225deg) translate($star2-radius) rotate(225deg);
 		}
 		to {
-			transform: rotate(360deg) translate($star4-radius) rotate(-360deg);
+			transform: rotate(-135deg) translate($star2-radius) rotate(135deg);
 		}
 	}
 	

@@ -1,26 +1,11 @@
 {
-	"pages": [{
+	"pages": [
+	{
 		"path": "pages/index/logreg",
 		"style": {
 			"navigationBarTitleText": "请先登录",
 			"animationType": "fade-in",
 			"animationDuration": 300
-		}
-	},
-	{
-		"path" : "pages/test/cameratest",
-		"style" : 
-		{
-			"navigationBarTitleText" : "",
-			"enablePullDownRefresh" : false
-		}
-	},
-	{
-		"path" : "pages/mainpage/mainpage",
-		"style" : 
-		{
-			"navigationBarTitleText" : "",
-			"enablePullDownRefresh" : false
 		}
 	},
 	{

@@ -1,24 +1,26 @@
 <template>
-    <view class="title">
-		<view class="title-left">
-			<navigator class="title-left-image" url="/pages/homepage/homepage">
-				<image src="../static/logo.png" style="width: 100%; height: 100%;"></image>
+    <view class="navtitle">
+		<view class="navtitle-left">
+			<navigator class="navtitle-left-image" url="/pages/homepage/homepage">
+				<image src="/images/background/logo.png" style="width: 100%; height: 100%;"></image>
 			</navigator>
-			<navigator class="text" url="/pages/homepage/homepage">
-　　            导航一
+			<navigator class="text" url="/pages/healthcheck/healthcheck" >
+				健康监测
 			</navigator>
-			<navigator class="text" url="/pages/homepage/homepage">
-			　　导航二
+			<navigator class="text" url="/pages/Inquisition/Inquisition_a">
+				远程问诊
 			</navigator>
-			<navigator class="text" url="/pages/homepage/homepage">
-			　　导航三
-			</navigator>
-			<navigator class="text" url="/pages/homepage/homepage">
-			　　导航四
-			</navigator>
+			<a class="text" href="http://47.101.34.15:18005/chat">
+			<!-- <a class="text" href="/chat"> -->
+				智慧医疗
+			</a>
+			<a class="text" href="http://47.101.34.15:18005/screen">
+			<!-- <a class="text" href="/screen"> -->
+				<view>饮食规划</view>
+			</a>
 		</view>
-       <view class="title-right">
-           <view class="title-right-image">
+       <view class="navtitle-right">
+           <view class="navtitle-right-image">
 			   <image src="/images/navbac/用户.png" style="top:10px;width: 70%; height: 70%;"></image>
 		   </view>
        </view>
@@ -27,46 +29,39 @@
 <script setup>
 	
 </script>
-<style>
+<style scoped>
 	.text{
-		width: max-content;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
 		color: white;
-		text-align: start;
+		margin: 0;
+		margin-left: 30rpx;
 	}
-.title{
+.navtitle{
 	z-index: 999;
 	position: relative;
 	top: 0;
     margin-left: 0px;
-    height: 60px;
+    height: 100%;
     width: 100%;
     background-color:#1e1e1e;
     display: flex;
     justify-content:space-between;
 }
-.title-left{
+.navtitle-left{
     width: 580px;
-    height: 60px;
+    height: 100%;
     margin-left: 0;
     background:#1e1e1e;
     display: flex;
 
 }
-.title-left-image{
-    height: 60px;
-    width:120px
-}
-span{
-    font-size: 16px
-}
- a{
-    width: 70px;
-    height: 60px;
-    color: black;
-    margin: 0px 10px;
-    text-decoration: none;
-     line-height: 60px;
-     text-align: center
+.navtitle-left-image{
+    height: 100%;
+    width: 120px
 }
  a:hover{
     background-color:	#BEBEBE;
@@ -80,9 +75,9 @@ span{
 }
 .inputType{
   width:400px;
-  height: 30px;
+  height: 100%;
   text-indent: 1em;
-   line-height: 34px;
+   line-height: 100%;
   background-color: #1e1e1e;
   border: 1px solid black;
   border-top-left-radius: 17px;
@@ -100,18 +95,18 @@ span{
   border-left:1px solid rgba(0, 0, 0, 0.45);
   width:60px;
   height: 32px;
-  line-height: 34px;
+  line-height: 100%;
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px
 }
-.title-right{
+.navtitle-right{
      width: 380px;
-    height: 60px;
+    height: 100%;
     display: flex;
 }
-.title-right-image{
+.navtitle-right-image{
     width: 60px;
-    height: 60px;
+    height: 100%;
     border-radius: 30px;
     margin: auto ;
     margin-left: 40px;

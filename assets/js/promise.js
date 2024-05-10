@@ -7,6 +7,7 @@ const headers = new Headers({
 function get (url) {
   return fetch(url, {
     method: 'GET',
+	mode: "cors",
     headers: headers
   }).then(response => {
     return handleResponse(url, response);
@@ -19,7 +20,7 @@ function get (url) {
 function post (url, data) {
   return fetch(url, {
     method: 'POST',
-	mode: "cors",
+	mode: 'cors',
     headers: headers,
     body: JSON.stringify(data)
   }).then(response => {

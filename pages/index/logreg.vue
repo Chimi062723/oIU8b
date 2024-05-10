@@ -43,32 +43,45 @@ import { put,get,post } from "../../assets/js/promise.js";
 import { onMounted, ref } from "vue";
 // import { useStore } from "vuex";
 // const store = useStore();
-let user = {
+let user = ref({
 	"username" : '',
 	"phone" : '',
 	"password" : ''
-}
+})
 const active2 = ref(true);
 function change(){
 	active2.value = !active2.value;
 }
 function signin(){
-	post("http://127.0.0.1:41729/user/user/login",user)
+	post("/user/user/login",user.value)
 	.then(response =>{
-		sessionStorage.setItem("user", JSON.stringify(response.data));
-		uni.redirectTo({
-		 	url:"../homepage/homepage"
-		})
+		if(response.code == 200){
+			console.log(response)
+			sessionStorage.setItem("user", JSON.stringify(response.data));
+			document.cookie="phone="+user.value.phone+';expires=Wed, 30 April 2025 12:00:00 UTC';
+			document.cookie="password="+user.value.password+';expires=Wed, 30 April 2025 12:00:00 UTC';
+			uni.redirectTo({
+			 	url:"../homepage/homepage"
+			})
+		}else{
+			uni.showToast({
+				title: "用户名或密码错误"
+			})
+		}
 	}).catch(err =>{
 		uni.showToast({
-			title: err.message
+				title: "用户名或密码错误"
 		})
 	})
 }
 function signup(){
-	post("http://127.0.0.1:41729/user/user/add",user)
+	post("/user/user/add",user.value)
 	.then(response =>{
+		console.log(response.data)
 		sessionStorage.setItem("user", JSON.stringify(response.data));
+		console.log(user.value)
+		document.cookie="phone="+user.value.phone+';expires=Wed, 30 April 2025 12:00:00 UTC';
+		document.cookie="password="+user.value.password+';expires=Wed, 30 April 2025 12:00:00 UTC';
 		uni.redirectTo({
 		 	url:"../homepage/homepage"
 		})
@@ -76,6 +89,22 @@ function signup(){
 		console.error(`Request failed.Url = ${url} . Message = ${response.statusText}`)
 	})
 }
+onMounted(()=>{
+	const allCookies = document.cookie
+	const cookieArray = allCookies.split(';')
+	console.log('aa', cookieArray)
+	for (let var1 in cookieArray) {
+		console.log('aa',var1)
+		const name = cookieArray[var1].split('=')[0]
+		const value1 = cookieArray[var1].split('=')[1]	
+		console.log(name,value1);
+		if(name == ' phone'){
+			user.value.phone = value1
+		}else if(name == 'password'){
+			user.value.password = value1
+		}
+	}
+})
 </script>
 	
 <style>
@@ -94,6 +123,7 @@ function signup(){
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		overflow-x: hidden;
 	}
 	.form__title {
 		font-weight: 300;

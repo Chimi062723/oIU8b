@@ -1,6 +1,6 @@
 {
     "name" : "Smart Medic",
-    "appid" : "",
+    "appid" : "__UNI__5CD0F5D",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -16,7 +16,10 @@
             "autoclose" : true,
             "delay" : 0
         },
-        "modules" : {},
+        "modules" : {
+            "LivePusher" : {},
+            "VideoPlayer" : {}
+        },
         /* 模块配置 */
         "distribute" : {
             /* 应用发布信息 */
@@ -57,5 +60,46 @@
         "usingComponents" : true
     },
     "vueVersion" : "3",
-    "locale" : "zh-Hans"
+    "locale" : "zh-Hans",
+    "h5" : {
+        "router" : {
+            "mode" : "hash",
+            "base" : "./"
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : false
+            }
+        },
+        "devServer" : {
+            "https" : false,
+			"proxy" : {
+				"/user" : {
+					"target" : "http://47.101.34.15:8080",
+					"changeOrigin" : true,
+					"secure" : false,
+					"pathRewrite" : {
+						"^/user" : ""
+					}
+				},
+				"/chat" : {
+					"target" : "http://47.101.34.15:18005",
+					"changeOrigin" : true,
+					"secure" : false,
+					"pathRewrite" : {
+						"^/chat" : ""
+					}
+				},
+				"/screen" : {
+					"target" : "http://47.101.34.15:18005",
+					"changeOrigin" : true,
+					"secure" : false,
+					"pathRewrite" : {
+						"^/screen" : ""
+					}
+				}
+			}
+        },
+        "title" : "智周万物——多模态一站式数据可视化个人健康管理平台"
+    }
 }
